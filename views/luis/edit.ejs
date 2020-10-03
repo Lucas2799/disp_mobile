@@ -9,11 +9,11 @@
 	 
 	<h2>Editar Registro</h2>
 	  <% data.forEach(function(details) { %>
-		<form action="/edit/<%= details._id %>" method="POST">
+		<form action="/luis/edit/<%= details._id %>" method="POST">
 		  <input type="text" value="<%= details.name %>" name="name">
 		  <input type="text" value="<%= details.surname %>" name="surname">
 		  <br />
-		  <button><a href="/show">Todos</a></button>
+		  <button><a href="/luis/show">Todos</a></button>
 		  <button type="submit">Editar</button>
 		</form>
 	  <% }) %>
