@@ -28,25 +28,25 @@ app.get('/', (req, res) => {
     res.render('lucas/index.ejs')
 })
 app.get('/', (req, res) => {
-    let cursor = db.collection('livro').find()
+    let cursor = db.collection('data').find()
 })
 
 app.get('/show', (req, res) => {
     
-    db.collection('livro').find().toArray((err, results) => {
+    db.collection('data').find().toArray((err, results) => {
         if (err) return console.log(err)
-        res.render('show.ejs', { data: results })
+        res.render('lucas/show.ejs', { data: results })
 
     })
 })
 
 app.post('/show', (req, res) => {
-    db.collection('livro').save(req.body, (err, result) => {
+    db.collection('data').save(req.body, (err, result) => {
         if (err) return console.log(err)
 
         console.log('Salvo no Banco de Dados')
         res.redirect('/show')
-        db.collection('livro').find().toArray((err, results) => {
+        db.collection('data').find().toArray((err, results) => {
             console.log(results)
         })
     })
@@ -56,25 +56,31 @@ app.post('/show', (req, res) => {
 app.route('/edit/:id')
 .get((req, res) => {
   var id = req.params.id
-  db.collection('livro').find(ObjectId(id)).toArray(
+  db.collection('data').find(ObjectId(id)).toArray(
       (err, result) => {
     if (err) return console.log(err)
-    res.render('edit.ejs', { data: result })
+    res.render('lucas/edit.ejs', { data: result })
   })
 })
 .post((req, res) => {
     var id = req.params.id
-    var name = req.body.name
-    var surname = req.body.surname
+    var nome = req.body.nome
+    var fantasia = req.body.fantasia
+    var cnpj = req.body.cnpj
+    var cidade = req.body.cidade
+    var tipo = req.body.tipo
    
-    db.collection('livro').updateOne(
+    db.collection('data').updateOne(
         {
             _id: ObjectId(id)
         }, 
         {
             $set: {
-              name: name,
-              surname: surname
+              name: nome,
+              name: fantasia,
+              name: cnpj,
+              name: cidade,
+              name: tipo
       }
     }, (err, result) => {
       if (err) return console.log(err)
@@ -86,10 +92,11 @@ app.route('/edit/:id')
   .get((req, res) => {
   var id = req.params.id
  
-  db.collection('livro').deleteOne({_id: ObjectId(id)}, (err, result) => {
+  db.collection('data').deleteOne({_id: ObjectId(id)}, (err, result) => {
     if (err) return res.send(500, err)
     console.log('Deletado do Banco de Dados!')
     res.redirect('/show')
   })
 })
+
 

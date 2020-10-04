@@ -1,9 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-      <meta charset="UTF-8">
-      <title>My CRUD </title>
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/f8b439a839.js" crossorigin="anonymous"></script>
+
+    <title>Mercadin</title>
     </head>
     <style>
         table, th, td {
@@ -17,25 +25,50 @@
     </style>
     <body>
 
-    <h2>
-        Registros
-    </h2>
+        <div class="container">
+            <ul class="nav nav-tabs justify-content-center">
+              <li class="nav-item">
+                <a class="nav-link active" href="/">Lucas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Luis">Luis</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/Mariana">Mariana</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/Reginalda">Reginalda</a>
+              </li>
+            </ul>
+          </div>
+
+        <h2>
+            Registros
+        </h2>
         <table border="1">
             <thead>
                 <tr>
                     <td>Nome</td>
-                    <td>Sobrenome</td>
+                    <td>Fantasia</td>
+                    <td>CNPJ</td>
+                    <td>Cidade</td>
+                    <td>Tipo</td>
+                    
                 </tr>
             </thead>
             <tbody>
                 <% data.forEach(function(details) { %>
                 <tr>
-                    <td><%= details.name %></td>
-                    <td><%= details.surname %></td>
-                    <td><a href="/edit/<%= details._id %>">Editar</a> - <a href="/delete/<%= details._id %>">Deletar</a></td>
+                    <td><%= details.nome %></td>
+                    <td><%= details.fantasia %></td>
+                    <td><%= details.cnpj %></td>
+                    <td><%= details.cidade %></td>
+                    <td><%= details.tipo %></td>
+                    <td><a href="/edit/<%= details._id %>"> Editar </a>-<a href="/delete/<%= details._id %>"> Deletar </a> </td>
                 </tr>
                 <% }) %>
             </tbody>
-            <button><a href="/">Voltar</a></button>
+            <button type="submit" class="btn btn-sm btn-secundary"><a href="/">Voltar</a></button>
+        </table>
     </body>
 </html>

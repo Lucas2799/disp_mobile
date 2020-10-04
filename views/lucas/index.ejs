@@ -10,8 +10,7 @@
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/f8b439a839.js" crossorigin="anonymous"></script>
-
-    <title>My CRUD </title>
+    <title>Mercadin</title>
   </head>
   <body>
 
@@ -31,11 +30,43 @@
         </li>
       </ul>
     </div>
-
+    <h1>Mercadin</h1>
     <form action="/show" method="POST">
-      <input type="text" placeholder="Nome" name="name">
-      <input type="text" placeholder="Sobrenome" name="surname">
-      <button type="submit">Submit</button>
+      <div class="form-row">
+        <div class="form-group col-md-5">
+          <label>Nome mercado</label>
+          <input type="text" class="form-control" name="nome">
+        </div>
+        <div class="form-group col-md-6">
+          <label>Nome Fantasia</label>
+          <input type="text" class="form-control" name="fantasia">
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <label>CNPJ</label>
+        <input type="text" class="form-control" name="cnpj">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">Cidade</label>
+          <input type="text" class="form-control" name="cidade">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">Tipo de loja</label>
+          <select id="inputState" class="form-control" name="tipo">
+            <option selected></option>
+            <option>Moda</option>
+            <option>Mquiagem</option>
+            <option>Eletronico</option>
+            <option>Moveis</option>
+            <option>Esport</option>
+            <option>Varejista</option>
+            <option>Calçados</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-secundary">Salvar</button>
+    
   </form> 
 
   </body>
