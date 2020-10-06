@@ -12,63 +12,64 @@
     <script src="https://kit.fontawesome.com/f8b439a839.js" crossorigin="anonymous"></script>
 
     <title>Mercadin</title>
-    </head>
+  </head>
+
     <style>
-        table, th, td {
+        table, th, td
+         {
           border: 1px solid black;
           border-collapse: collapse;
           
-        }
-        h2{
+          }
+        h2
+          {
             color: rgb(34, 34, 122);
-        }
+          }
     </style>
+
     <body>
 
-        <div class="container">
-            <ul class="nav nav-tabs justify-content-center">
-              <li class="nav-item">
-                <a class="nav-link active" href="/">Lucas</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/Luis">Luis</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/Mariana">Mariana</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/Reginalda">Reginalda</a>
-              </li>
-            </ul>
-          </div>
+      <div class="container">
+        <ul class="nav nav-tabs justify-content-center">
+          <li class="nav-item">
+              <a class="nav-link active" href="/">Lucas</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link"  href="/Luis">Luis</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/Mariana">Mariana</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Reginalda">Reginalda</a>
+          </li>
+        </ul>
+      </div>
 
-        <h2>
-            Registros
-        </h2>
-        <table border="1">
-            <thead>
-                <tr>
-                    <td>Nome</td>
-                    <td>Fantasia</td>
-                    <td>CNPJ</td>
-                    <td>Cidade</td>
-                    <td>Tipo</td>
-                    
-                </tr>
-            </thead>
+      <h2>Registros</h2>
+      <table border="1">
+          <thead>
+            <tr>
+              <td>Nome</td>
+              <td>Fantasia</td>
+              <td>CNPJ</td>
+              <td>Cidade</td>
+              <td>Tipo</td>      
+            </tr>
+          </thead>
             <tbody>
-                <% data.forEach(function(details) { %>
+              <% livro.forEach(function(details) { %>
                 <tr>
-                    <td><%= details.nome %></td>
-                    <td><%= details.fantasia %></td>
-                    <td><%= details.cnpj %></td>
-                    <td><%= details.cidade %></td>
-                    <td><%= details.tipo %></td>
-                    <td><a href="/edit/<%= details._id %>"> Editar </a>-<a href="/delete/<%= details._id %>"> Deletar </a> </td>
+                  <td><%= details.nome %></td>
+                  <td><%= details.fantasia %></td>
+                  <td><%= details.cnpj %></td>
+                  <td><%= details.cidade %></td>
+                  <td><%= details.tipo %></td>
+                  <td><a class="btn " href="/lucas/edit/<%= details._id %>"> Editar </a>-<a class="btn "href="/lucas/delete/<%= details._id %>"> Deletar </a> </td>
                 </tr>
-                <% }) %>
+              <% }) %>
             </tbody>
-            <button type="submit" class="btn btn-sm btn-secundary"><a href="/">Voltar</a></button>
-        </table>
+        <button type="submit" class="btn btn-sm btn-secundary"><a  class="btn btn-sm btn-" href="/">Voltar</a></button>
+      </table>
     </body>
 </html>
